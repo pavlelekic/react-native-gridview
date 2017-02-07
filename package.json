@@ -1,0 +1,25 @@
+{
+  "name": "rn-gridview",
+  "version": "1.0.0",
+  "description": "A GridView component for React Native with smarter rendering logic.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavlelekic/react-native-gridview.git"
+  },
+  "keywords": [
+    "react-native",
+    "listview",
+    "grid",
+    "gridview"
+  ],
+  "author": "Pavle Lekic <lekic.pavle@yahoo.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavlelekic/react-native-gridview/issues"
+  },
+  "homepage": "https://github.com/pavlelekic/react-native-gridview#readme"
+}

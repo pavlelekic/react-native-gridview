@@ -1,53 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
+// @ flow weak
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-export default class Example extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import {AppRegistry, View, StyleSheet, ListView, Text} from 'react-native';
+const GridView = require('./GridView').default;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    listContainer: {flex: 1, backgroundColor: 'powderblue'},
+    item: {backgroundColor: 'navajowhite', margin: 3, paddingVertical: 7, borderWidth: 4, borderColor: 'orange', alignItems: 'center', justifyContent: 'center'}
+});
+
+const Example = React.createClass({
+    getInitialState: function() {
+        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var data = Array.apply(null, {length: 40}).map(Number.call, Number);
+
+        return {
+            dataSource: ds.cloneWithRows(data)
+        };
+    },
+
+    render: function() {
+        return (
+            <View style={styles.listContainer}>
+                <GridView
+                    dataSource={this.state.dataSource}
+                    renderRow={this._renderRow}
+                    numberOfItemsPerRow={5}
+                    removeClippedSubviews={false}
+                    initialListSize={1}
+                    pageSize={5}
+                />
+            </View>
+        );
+    },
+
+    _renderRow: function(rowData) {
+        return (
+            <View style={styles.item}>
+                <Text>{rowData}</Text>
+            </View>
+        );
+    }
 });
 
 AppRegistry.registerComponent('Example', () => Example);
