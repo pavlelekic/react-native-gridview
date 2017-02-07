@@ -1,5 +1,5 @@
 {
-  "name": "rn-gridview",
+  "name": "react-native-easy-gridview",
   "version": "1.0.0",
   "description": "A GridView component for React Native with smarter rendering logic.",
   "main": "index.js",
