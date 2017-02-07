@@ -19,6 +19,10 @@ When you divide the available width with the number of columns, you will get a n
 
 This is why I created this component. It will do these calculations for you. It uses ListView component underneath, and therefore accepts all the props that the original RN ListView component receives, plus one extra prop to set the number of columns (`numberOfItemsPerRow`)
 
+## Example
+
+To run the example just do `npm install` in the `/Example` dir and then run `react-native run-ios`, or open it in Xcode and run it from there.
+
 ## Props
 
 `numberOfItemsPerRow` - Like the name implies, it's the number of items per row (number of columns).
