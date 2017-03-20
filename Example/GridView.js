@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
     contentContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        marginHorizontal: 0,
+        paddingHorizontal: 0
     }
 });
 
@@ -39,7 +41,7 @@ export default class GridView extends Component {
             this.setState({
                 availableWidth: width,
                 itemWidth: Math.floor(width / this.props.numberOfItemsPerRow),
-                // this is used for centering the listview
+                /* this is used for centering the listview */
                 outerContainerLeftPadding: Math.floor((width % this.props.numberOfItemsPerRow) / 2)
             });
         }
@@ -72,7 +74,7 @@ export default class GridView extends Component {
                 ref={this.props.listViewRef}
                 {...this.props}
                 renderRow={this._renderRow}
-                contentContainerStyle={[styles.contentContainer, this.props.contentContainerStyle]}
+                contentContainerStyle={[this.props.contentContainerStyle, styles.contentContainer]}
             />
         );
     }
