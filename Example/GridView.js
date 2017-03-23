@@ -17,7 +17,7 @@ export default class GridView extends Component {
         numberOfItemsPerRow: React.PropTypes.number.isRequired,
         renderRow: React.PropTypes.func.isRequired,
         listViewRef: React.PropTypes.func,
-        contentContainerStyle: React.PropTypes.number
+        contentContainerStyle: React.PropTypes.any
     };
 
     state: {
