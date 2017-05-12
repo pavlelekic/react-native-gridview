@@ -1,6 +1,6 @@
 {
   "name": "react-native-easy-gridview",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A GridView component for React Native with smarter rendering logic.",
   "main": "index.js",
   "scripts": {
