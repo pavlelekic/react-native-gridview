@@ -1,6 +1,7 @@
 // @flow weak
 import React, {Component} from 'react';
 import {View, StyleSheet, ListView, Text} from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
     contentContainer: {
@@ -13,12 +14,6 @@ const styles = StyleSheet.create({
 });
 
 export default class GridView extends Component {
-    static propTypes = {
-        numberOfItemsPerRow: React.PropTypes.number.isRequired,
-        renderRow: React.PropTypes.func.isRequired,
-        listViewRef: React.PropTypes.func,
-        contentContainerStyle: React.PropTypes.any
-    };
 
     state: {
         availableWidth?: number,
@@ -51,9 +46,9 @@ export default class GridView extends Component {
         if (__DEV__) {
             if (this.state.availableWidth === 0) {
                 console.warn(
-                   'Cannot render GridView because available width is 0! ' +
-                   'Try setting {flex: 1} to the parent component.'
-               );
+                    'Cannot render GridView because available width is 0! ' +
+                    'Try setting {flex: 1} to the parent component.'
+                );
             }
         }
 
@@ -86,4 +81,12 @@ export default class GridView extends Component {
             </View>
         );
     }
+}
+
+
+GridView.propTypes = {
+    numberOfItemsPerRow: PropTypes.number.isRequired,
+    renderRow: PropTypes.func.isRequired,
+    listViewRef: PropTypes.func,
+    contentContainerStyle: PropTypes.any
 }
